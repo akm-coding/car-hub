@@ -1,16 +1,16 @@
 "use client";
 
-import { SearchManufactureProps } from "@/types";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
 import CarLogo from "../../public/car-logo.svg";
 import { manufactures } from "@/constants";
+import { SearchManuFactureProps } from "@/types";
 
 export default function SearchManufacture({
-  manufacture,
-  setManufacture,
-}: SearchManufactureProps) {
+  selected,
+  setSelected,
+}: SearchManuFactureProps) {
   const [query, setQuery] = useState("");
 
   const filteredManufactures =
@@ -25,7 +25,7 @@ export default function SearchManufacture({
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={manufacture} onChange={setManufacture}>
+      <Combobox value={selected} onChange={setSelected}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image
